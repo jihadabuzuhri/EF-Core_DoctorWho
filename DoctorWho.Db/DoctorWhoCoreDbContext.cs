@@ -2,7 +2,7 @@
 
 namespace DoctorWho.Db
 {
-    public class DoctorWhoCoreDbContext :DbContext
+    public class DoctorWhoCoreDbContext : DbContext
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<Companion> Companions { get; set; }
@@ -11,6 +11,8 @@ namespace DoctorWho.Db
         public DbSet<Episode> Episodes { get; set; }
         public DbSet<EpisodeCompanion> EpisodeCompanions { get; set; }
         public DbSet<EpisodeEnemy> EpisodeEnemies { get; set; }
+        public DbSet<viewEpisodes> viewEpisodes { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -110,6 +112,10 @@ namespace DoctorWho.Db
                 new EpisodeEnemy { EpisodeEnemyId = 4, EpisodeId = 4, EnemyId = 3 },
                 new EpisodeEnemy { EpisodeEnemyId = 5, EpisodeId = 5, EnemyId = 4 }
             );
+
+
+
+            modelBuilder.Entity<viewEpisodes>().HasNoKey().ToView("viewEpisodes");
 
 
 

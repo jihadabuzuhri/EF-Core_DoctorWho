@@ -1,5 +1,6 @@
 ﻿using DoctorWho.Db;
 using DoctorWho.Db.Migrations;
+using DoctorWho.Db.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Data.Entity;
@@ -10,8 +11,15 @@ namespace DoctorWho
     {
         static void Main(string[] args)
         {
-            DoctorWhoCoreDbContext dbContext= new DoctorWhoCoreDbContext();
+            DoctorWhoCoreDbContext dbContext = new DoctorWhoCoreDbContext();
 
+            var AuthorService = new EntityService<Author>(dbContext);
+            var CompanionService = new EntityService<Companion>(dbContext);
+            var EnemyService = new EntityService<Enemy>(dbContext);
+            var DoctorService = new EntityService<Doctor>(dbContext);
+            var EpisodeService = new EntityService<Episode>(dbContext);
+
+            
             CallCompanionsFunction(dbContext,1);
             CallEnemiesFunction(dbContext,3);
             CallSummariseEpisodesProcedure(dbContext);

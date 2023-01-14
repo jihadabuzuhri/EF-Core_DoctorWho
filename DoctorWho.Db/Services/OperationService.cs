@@ -31,17 +31,14 @@ namespace DoctorWho.Db.Services
                 _context.SaveChanges();
             }
         }
-
         public IEnumerable<Doctor> GetAllDoctors()
         {
             return _context.Doctors.ToList();
         }
-
         public Enemy GetEnemyById(int id)
         {
             return _context.Enemies.Find(id);
         }
-
         public Companion GetCompanionById(int id)
         {
             return _context.Companions.Find(id);

@@ -19,6 +19,7 @@ namespace DoctorWho
             var DoctorService = new EntityService<Doctor>(dbContext);
             var EpisodeService = new EntityService<Episode>(dbContext);
 
+            var operationService = new OperationService(dbContext);
             
             CallCompanionsFunction(dbContext,1);
             CallEnemiesFunction(dbContext,3);
